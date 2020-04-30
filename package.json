@@ -1,15 +1,13 @@
 {
   "name": "electron-quick-start",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder build --mac --win --publish never",
     "deploy": "electron-builder build --mac --win --publish always"
-
   },
-  "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
     "quick",
@@ -24,10 +22,11 @@
     "electron-builder": "^22.6.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/eupston/electron-starter.git"
+    "type": "git",
+    "url": "https://github.com/eupston/electron-starter.git"
   },
   "dependencies": {
-    "electron-updater": "^4.3.1"
+    "electron-updater": "^4.3.1",
+    "update-electron-app": "^1.5.0"
   }
 }

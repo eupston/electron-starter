@@ -2,6 +2,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path')
 const { autoUpdater } = require('electron-updater');
+require('update-electron-app')()
 
 let mainWindow;
 
@@ -18,7 +19,6 @@ function createWindow () {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-    autoUpdater.checkForUpdatesAndNotify();
 }
 
 app.on('ready', () => {
@@ -36,21 +36,21 @@ app.on('activate', function () {
     createWindow();
   }
 });
-
-ipcMain.on('app_version', (event) => {
-  event.sender.send('app_version', { version: app.getVersion() });
-});
-
-autoUpdater.on('update-available', () => {
-  mainWindow.webContents.send('update_available');
-});
-
-autoUpdater.on('update-downloaded', () => {
-  mainWindow.webContents.send('update_downloaded');
-});
-
-ipcMain.on('restart_app', () => {
-  autoUpdater.quitAndInstall();
-});
+//
+// ipcMain.on('app_version', (event) => {
+//   event.sender.send('app_version', { version: app.getVersion() });
+// });
+//
+// autoUpdater.on('update-available', () => {
+//   mainWindow.webContents.send('update_available');
+// });
+//
+// autoUpdater.on('update-downloaded', () => {
+//   mainWindow.webContents.send('update_downloaded');
+// });
+//
+// ipcMain.on('restart_app', () => {
+//   autoUpdater.quitAndInstall();
+// });
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
